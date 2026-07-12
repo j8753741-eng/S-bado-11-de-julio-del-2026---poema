@@ -1,200 +1,899 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SÁBADO 11 DE JULIO DEL 2026 - POEMA </title>
-    <style>
-        body {
-            font-family: 'Georgia', serif;
-            background-color: #f0f8ff;
-            color: #333;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-        }
-        h1 {
-            text-align: center;
-            color: #4b0082;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
-        h2 {
-            color: #8a2be2;
-            text-align: center;
-            font-size: 1.5em;
-            margin-bottom: 10px;
-        }
-        p {
-            margin: 10px 0;
-            text-align: justify;
-            font-size: 1.2em;
-            padding: 0 15px;
-        }
-        .highlight {
-            color: #ff4500;
-            font-weight: bold;
-        }
-        .signature {
-            text-align: right;
-            font-style: italic;
-            margin-top: 40px;
-            padding-right: 15px;
-        }
-        .footer {
-            text-align: center;
-            margin-top: 50px;
-            font-size: 0.9em;
-            color: #666;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cuando la noche me pregunta por ti</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Marcellus&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+background:
+radial-gradient(circle at top,#344d84 0%,#182544 28%,#0a1022 62%,#03040a 100%);
+
+overflow-x:hidden;
+font-family:'Cormorant Garamond',serif;
+color:#fefbf4;
+
+}
+
+/* Fondo celestial */
+
+body::before{
+
+content:"";
+position:fixed;
+inset:0;
+
+background:
+
+radial-gradient(circle,#ffffffee 1.2px,transparent 1.3px),
+radial-gradient(circle,#fff8d7 1.8px,transparent 2px),
+radial-gradient(circle,#d9f4ff 1.5px,transparent 1.7px);
+
+background-size:
+170px 170px,
+240px 240px,
+310px 310px;
+
+opacity:.42;
+
+animation:stars 170s linear infinite;
+
+pointer-events:none;
+
+}
+
+@keyframes stars{
+
+from{transform:translateY(0);}
+to{transform:translateY(-900px);}
+
+}
+
+/* Neblina */
+
+body::after{
+
+content:"";
+position:fixed;
+width:170%;
+height:170%;
+left:-35%;
+top:-35%;
+
+background:
+
+radial-gradient(circle,
+rgba(255,255,255,.10),
+transparent 68%);
+
+animation:mist 25s ease-in-out infinite alternate;
+
+pointer-events:none;
+
+}
+
+@keyframes mist{
+
+from{
+transform:rotate(0deg) scale(1);
+}
+
+to{
+transform:rotate(8deg) scale(1.18);
+}
+
+}
+
+/* Lunas */
+
+.moon-one{
+
+position:fixed;
+top:60px;
+right:8%;
+width:120px;
+height:120px;
+
+border-radius:50%;
+
+background:
+radial-gradient(circle at 30% 30%,
+#ffffff,
+#fff7d2 55%,
+#efdca5 80%);
+
+box-shadow:
+0 0 40px #fff9cb,
+0 0 90px rgba(255,248,180,.7);
+
+opacity:.95;
+
+animation:moon 7s ease-in-out infinite;
+
+}
+
+.moon-two{
+
+position:fixed;
+bottom:70px;
+left:7%;
+width:60px;
+height:60px;
+
+border-radius:50%;
+
+background:#fffef5;
+
+opacity:.25;
+
+filter:blur(2px);
+
+animation:moon2 9s ease-in-out infinite;
+
+}
+
+@keyframes moon{
+
+50%{
+transform:translateY(-8px);
+}
+
+}
+
+@keyframes moon2{
+
+50%{
+transform:translateY(10px);
+}
+
+}
+
+/* Chispas */
+
+.spark{
+
+position:fixed;
+width:5px;
+height:5px;
+
+border-radius:50%;
+background:white;
+
+box-shadow:
+0 0 12px white;
+
+animation:floatSpark linear infinite;
+
+opacity:.75;
+
+}
+
+.spark:nth-child(1){left:8%;top:90%;animation-duration:13s;}
+.spark:nth-child(2){left:18%;top:104%;animation-duration:16s;}
+.spark:nth-child(3){left:32%;top:98%;animation-duration:12s;}
+.spark:nth-child(4){left:45%;top:106%;animation-duration:15s;}
+.spark:nth-child(5){left:60%;top:96%;animation-duration:17s;}
+.spark:nth-child(6){left:72%;top:102%;animation-duration:14s;}
+.spark:nth-child(7){left:84%;top:95%;animation-duration:16s;}
+.spark:nth-child(8){left:92%;top:108%;animation-duration:18s;}
+
+@keyframes floatSpark{
+
+from{
+transform:translateY(0) scale(.4);
+opacity:0;
+}
+
+15%{
+opacity:1;
+}
+
+85%{
+opacity:1;
+}
+
+to{
+
+transform:translateY(-120vh) scale(1.3);
+
+opacity:0;
+
+}
+
+}
+
+/* Contenedor */
+
+.wrapper{
+
+position:relative;
+z-index:2;
+
+max-width:940px;
+
+margin:90px auto;
+
+padding:25px;
+
+}
+
+.poem{
+
+background:
+linear-gradient(rgba(255,255,255,.08),
+rgba(255,255,255,.04));
+
+backdrop-filter:blur(14px);
+
+border:1px solid rgba(255,255,255,.18);
+
+border-radius:34px;
+
+padding:75px;
+
+box-shadow:
+
+0 0 80px rgba(255,255,255,.08),
+0 0 160px rgba(117,163,255,.08);
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+/* Destellos */
+
+.poem::before{
+
+content:"";
+
+position:absolute;
+
+width:460px;
+height:460px;
+
+border-radius:50%;
+
+background:
+
+radial-gradient(circle,
+rgba(255,255,255,.18),
+transparent 72%);
+
+top:-220px;
+right:-180px;
+
+}
+
+.poem::after{
+
+content:"✦";
+
+position:absolute;
+
+bottom:35px;
+right:40px;
+
+font-size:30px;
+
+color:#fff7ce;
+
+animation:shine 3s infinite;
+
+}
+
+@keyframes shine{
+
+50%{
+
+opacity:.35;
+transform:scale(1.25);
+
+}
+
+}
+
+h1{
+
+font-family:'Marcellus',serif;
+
+text-align:center;
+
+font-size:2.8em;
+
+letter-spacing:2px;
+
+line-height:1.3;
+
+color:#fffdf5;
+
+margin-bottom:28px;
+
+text-shadow:
+
+0 0 18px rgba(255,255,255,.35);
+
+}
+
+.date{
+
+text-align:center;
+
+font-family:'Montserrat',sans-serif;
+
+font-size:.95em;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:#efe5ba;
+
+margin-bottom:50px;
+
+}
+
+.divider{
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+gap:18px;
+
+margin-bottom:55px;
+
+}
+
+.divider span{
+
+width:90px;
+height:1px;
+
+background:linear-gradient(to right,
+transparent,
+#fff4c2,
+transparent);
+
+}
+
+.divider i{
+
+font-style:normal;
+
+font-size:24px;
+
+color:#fff3ba;
+
+animation:shine 4s infinite;
+
+}
+
+p{
+
+font-size:1.45em;
+
+line-height:2.05;
+
+margin-bottom:24px;
+
+color:#fffef8;
+
+text-align:justify;
+
+}
+
+strong{
+
+font-weight:700;
+
+color:#fff2bb;
+
+}
+
+.signature{
+
+margin-top:55px;
+
+text-align:center;
+
+font-size:1.7em;
+
+color:#fff4cb;
+
+}
+
+@media(max-width:768px){
+
+.poem{
+
+padding:34px 26px;
+
+}
+
+h1{
+
+font-size:2.1em;
+
+}
+
+p{
+
+font-size:1.22em;
+
+line-height:1.95;
+
+}
+
+}
+
+</style>
+
 </head>
+
 <body>
 
-    <h1>CUANDO LA NOCHE ME PREGUNTA POR TI</h1>
-    <h2>Sábado, 11 de julio del 2026 — Noche</h2>
+<div class="moon-one"></div>
+<div class="moon-two"></div>
 
-    <p>Mi niña hermosa:</p>
+<div class="spark"></div>
+<div class="spark"></div>
+<div class="spark"></div>
+<div class="spark"></div>
+<div class="spark"></div>
+<div class="spark"></div>
+<div class="spark"></div>
+<div class="spark"></div>
 
-    <p>Esta noche el cielo parece inmenso, pero aun así no logra contener todo lo que siento por ti.</p>
+<div class="wrapper">
 
-    <p>Hay noches que llegan con estrellas.<br>
-    Y hay otras que llegan llevando tu ausencia entre sus manos.<br>
-    Esta es una de ellas.</p>
+<div class="poem">
 
-    <p>No importa cuánto intente distraer mi corazón; al final siempre termina caminando hacia el mismo lugar... hacia ti.</p>
+<h1>
+CUANDO LA NOCHE ME PREGUNTA POR TI,<br>
+HASTA EL SILENCIO APRENDE A EXTRAÑAR
+</h1>
 
-    <p>Hoy te extraño con una intensidad que ni siquiera sabía que existía.</p>
+<div class="date">
+Sábado, 11 de julio del 2026 — Noche
+</div>
 
-    <p>Te extraño cuando miro el reloj.<br>
-    Te extraño cuando el viento toca mi rostro y me recuerda la suavidad de tus caricias.<br>
-    Te extraño cuando imagino tu sonrisa iluminando todo aquello que alcanza a mirar.</p>
+<div class="divider">
 
-    <p>Pero, sobre todo, te extraño porque llevo demasiados días sin poder hacer lo único que más deseo en el mundo...<br>
-    <span class="highlight">Besarte.</span></p>
+<span></span>
 
-    <p>Quién diría que un beso tuyo podría convertirse en el lugar donde más paz encuentra mi alma.</p>
+<i>✧</i>
 
-    <p>Extraño acercarme lentamente a ti.<br>
-    Sentir cómo desaparece el ruido del mundo cuando nuestras miradas se encuentran.<br>
-    Poner una mano sobre tu mejilla.<br>
-    Acariciar tu cabello.<br>
-    Ver cómo tus ojitos brillan mientras sonríes.<br>
-    Y después... cerrar la distancia que existe entre nosotros hasta encontrar tus labios.</p>
+<span></span>
 
-    <p>No sabes cuánto daría por vivir ese instante una vez más.</p>
+</div>
 
-    <p>Porque tus besos no son solamente besos.<br>
-    Son refugio.<br>
-    Son calma.<br>
-    Son hogar.<br>
-    Son la forma más bonita que ha encontrado mi corazón para sentirse completo.</p>
+<p><strong>Mi niña hermosa:</strong></p>
 
-    <p>Esta noche intento ser fuerte.<br>
-    Intento convencerme de que falta un día menos para volver a verte.</p>
+<p>
+Esta noche el cielo parece inmenso, pero aun así no logra contener todo lo que siento por ti.
+</p>
 
-    <p>Pero hay momentos en los que la distancia pesa demasiado.<br>
-    Hay momentos en los que quisiera detener el tiempo solamente para aparecer frente a ti, abrazarte muy fuerte y no soltarte jamás.</p>
+<p>
+Hay noches que llegan con estrellas.
+</p>
 
-    <p>Si pudiera pedir un solo deseo esta noche, no pediría riquezas, ni suerte, ni éxitos.<br>
-    Pediría cinco minutos contigo.</p>
+<p>
+Y hay otras que llegan llevando tu ausencia entre sus manos.
+</p>
 
-    <p>Cinco minutos para abrazarte.<br>
-    Cinco minutos para mirar tus ojos sin prisa.<br>
-    Cinco minutos para perderme en tu sonrisa.<br>
-    Cinco minutos para volver a besarte como si el universo entero estuviera esperando ese momento.</p>
+<p>
+Esta es una de ellas.
+</p>
 
-    <p>Porque cada segundo a tu lado vale más que cualquier cosa que pueda existir.</p>
+<p>
+No importa cuánto intente distraer mi corazón; al final siempre termina caminando hacia el mismo lugar... hacia ti.
+</p>
 
-    <p>A veces cierro los ojos e imagino el instante en que vuelva a encontrarte.<br>
-    Imagino cómo correré hacia ti.<br>
-    Cómo mis brazos volverán a rodearte.<br>
-    Cómo sentiré otra vez el calor de tu cuerpo tan cerca del mío.</p>
+<p>
+Hoy te extraño con una intensidad que ni siquiera sabía que existía.
+</p>
 
-    <p>Cómo nuestras frentes se rozarán lentamente mientras sonrío sin poder evitarlo.<br>
-    Y entonces llegará ese momento que llevo tantos días esperando...<br>
-    Volveré a besarte.</p>
+<p>
+Te extraño cuando miro el reloj.
+</p>
 
-    <p>No será un beso cualquiera.<br>
-    Será un beso lleno de todos los días que te he extrañado.<br>
-    De todas las noches que he pensado en ti.<br>
-    De todos los "te amo" que han permanecido guardados dentro de mi pecho.</p>
+<p>
+Te extraño cuando el viento toca mi rostro y me recuerda la suavidad de tus caricias.
+</p>
 
-    <p>Será un beso que intentará decirte todo aquello que las palabras jamás lograrán explicar.</p>
+<p>
+Te extraño cuando imagino tu sonrisa iluminando todo aquello que alcanza a mirar.
+</p>
 
-    <p>Porque cuando te beso siento que el mundo entero deja de girar.<br>
-    Solo existimos tú y yo.<br>
-    Solo existe este amor tan inmenso que ha cambiado por completo mi vida.</p>
+<p>
+Pero, sobre todo, te extraño porque llevo demasiados días sin poder hacer lo único que más deseo en el mundo...
+</p>
 
-    <p>Gracias por existir.<br>
-    Gracias por aparecer en mi camino cuando ni siquiera imaginaba que alguien pudiera hacerme tan feliz.</p>
+<p>
+<strong>Besarte.</strong>
+</p>
 
-    <p>Desde que llegaste entendí que el amor verdadero no consiste únicamente en decir "te amo".<br>
-    Consiste en elegirte todos los días.<br>
-    En admirarte.<br>
-    En respetarte.<br>
-    En cuidar tu corazón incluso cuando estás lejos.</p>
+<p>
+Quién diría que un beso tuyo podría convertirse en el lugar donde más paz encuentra mi alma.
+</p>
 
-    <p>En seguir enamorándome de ti una y otra vez, como si cada amanecer fuera el primero.<br>
-    Y eso es exactamente lo que haces conmigo.</p>
+<p>
+Extraño acercarme lentamente a ti.
+</p>
 
-    <p>Cada día encuentro una razón nueva para amarte.<br>
-    Una nueva razón para sentirme orgulloso de la mujer maravillosa que eres.</p>
+<p>
+Sentir cómo desaparece el ruido del mundo cuando nuestras miradas se encuentran.
+</p>
 
-    <p>Eres hermosa.<br>
-    Pero no solamente por tu sonrisa.<br>
-    Eres hermosa por la ternura con la que miras.<br>
-    Por la bondad que llevas dentro.<br>
-    Por la fuerza que tienes incluso cuando nadie la ve.</p>
+<p>
+Poner una mano sobre tu mejilla.
+</p>
 
-    <p>Por la forma en que haces que mi corazón encuentre paz con solo pensar en ti.</p>
+<p>
+Acariciar tu cabello.
+    </p>
 
-    <p>Si esta noche pudieras escuchar cada latido de mi pecho, descubrirías que todos pronuncian tu nombre.<br>
-    Uno por uno.<br>
-    Sin detenerse.<br>
-    Como una promesa que jamás dejará de cumplirse.</p>
+<p>
+Ver cómo tus ojitos brillan mientras sonríes.
+</p>
 
-    <p>Y aunque hoy la distancia me robe tus abrazos...<br>
-    Aunque esta noche tenga que conformarme con imaginar tus besos...<br>
-    Aunque mi corazón sienta un vacío enorme por no tenerte aquí...</p>
+<p>
+Y después... cerrar la distancia que existe entre nosotros hasta encontrar tus labios.
+</p>
 
-    <p>Quiero que nunca dudes de algo.<br>
-    Ni un solo kilómetro podrá hacer que deje de amarte.<br>
-    Ni un solo día conseguirá borrar todo lo que siento por ti.</p>
+<p>
+No sabes cuánto daría por vivir ese instante una vez más.
+</p>
 
-    <p>Porque mi amor por ti no depende de la cercanía.<br>
-    Depende del alma.<br>
-    Y mi alma hace mucho tiempo decidió quedarse contigo para siempre.</p>
+<p>
+Porque tus besos no son solamente besos.
+</p>
 
-    <p>Así que esta noche dormiré abrazando la esperanza.<br>
-    Pensando en el momento en que vuelva a verte.<br>
-    En el instante en que nuestras manos vuelvan a encontrarse.<br>
-    En el segundo exacto en que vuelva a perderme en tus ojos.</p>
+<p><strong>Son refugio.</strong></p>
 
-    <p>Y especialmente...<br>
-    En ese beso.<br>
-    Ese beso que llevo tantos días soñando.<br>
-    Ese beso que seguramente hará que toda esta espera haya valido la pena.</p>
+<p><strong>Son calma.</strong></p>
 
-    <p>Hasta entonces seguiré cuidando este amor con todo lo que soy.<br>
-    Seguiré contando los días.<br>
-    Seguiré soñando contigo.<br>
-    Seguiré enamorándome de ti incluso desde la distancia.</p>
+<p><strong>Son hogar.</strong></p>
 
-    <p>Porque no existe un solo lugar en este universo donde mi corazón quiera vivir que no sea a tu lado.</p>
+<p>
+Son la forma más bonita que ha encontrado mi corazón para sentirse completo.
+</p>
 
-    <p>Te extraño muchísimo, mi princesa hermosa.<br>
-    Y si esta noche se me hace difícil soportar la distancia, es porque mi corazón nunca dejó de buscar tus labios.</p>
+<p>
+Esta noche intento ser fuerte.
+</p>
 
-    <p>Te amo con toda mi alma.<br>
-    Con todo mi corazón.<br>
-    Con toda mi vida.<br>
-    Y con todos los besos que aún guardo para ti, esperando el día en que por fin pueda entregártelos uno por uno, como la prueba más sincera de que mi amor por ti no deja de crecer jamás.</p>
+<p>
+Intento convencerme de que falta un día menos para volver a verte.
+</p>
 
-    <p class="signature">Buenas noches, mi amor.<br>
-    Que los sueños te abracen por mí mientras llega el momento en que sea yo quien pueda hacerlo de verdad.</p>
+<p>
+Pero hay momentos en los que la distancia pesa demasiado.
+</p>
 
-    <div class="footer">© SÁBADO 11 DE JULIO DEL 2026 - POEMA</div>
+<p>
+Hay momentos en los que quisiera detener el tiempo solamente para aparecer frente a ti, abrazarte muy fuerte y no soltarte jamás.
+</p>
+
+<p>
+Si pudiera pedir un solo deseo esta noche, no pediría riquezas, ni suerte, ni éxitos.
+</p>
+
+<p>
+Pediría cinco minutos contigo.
+</p>
+
+<p>
+Cinco minutos para abrazarte.
+</p>
+
+<p>
+Cinco minutos para mirar tus ojos sin prisa.
+</p>
+
+<p>
+Cinco minutos para perderme en tu sonrisa.
+</p>
+
+<p>
+Cinco minutos para volver a besarte como si el universo entero estuviera esperando ese momento.
+</p>
+
+<p>
+Porque cada segundo a tu lado vale más que cualquier cosa que pueda existir.
+</p>
+
+<p>
+A veces cierro los ojos e imagino el instante en que vuelva a encontrarte.
+</p>
+
+<p>
+Imagino cómo correré hacia ti.
+</p>
+
+<p>
+Cómo mis brazos volverán a rodearte.
+</p>
+
+<p>
+Cómo sentiré otra vez el calor de tu cuerpo tan cerca del mío.
+</p>
+
+<p>
+Cómo nuestras frentes se rozarán lentamente mientras sonrío sin poder evitarlo.
+</p>
+
+<p>
+Y entonces llegará ese momento que llevo tantos días esperando...
+</p>
+
+<p>
+<strong>Volveré a besarte.</strong>
+</p>
+
+<p>
+No será un beso cualquiera.
+</p>
+
+<p>
+Será un beso lleno de todos los días que te he extrañado.
+</p>
+
+<p>
+De todas las noches que he pensado en ti.
+</p>
+
+<p>
+De todos los "te amo" que han permanecido guardados dentro de mi pecho.
+</p>
+
+<p>
+Será un beso que intentará decirte todo aquello que las palabras jamás lograrán explicar.
+</p>
+
+<p>
+Porque cuando te beso siento que el mundo entero deja de girar.
+</p>
+
+<p>
+Solo existimos tú y yo.
+</p>
+
+<p>
+Solo existe este amor tan inmenso que ha cambiado por completo mi vida.
+</p>
+
+<p>
+Gracias por existir.
+</p>
+
+<p>
+Gracias por aparecer en mi camino cuando ni siquiera imaginaba que alguien pudiera hacerme tan feliz.
+</p>
+
+<p>
+Desde que llegaste entendí que el amor verdadero no consiste únicamente en decir <strong>"te amo"</strong>.
+</p>
+
+<p>
+Consiste en elegirte todos los días.
+</p>
+
+<p>
+En admirarte.
+</p>
+
+<p>
+En respetarte.
+</p>
+
+<p>
+En cuidar tu corazón incluso cuando estás lejos.
+</p>
+
+<p>
+En seguir enamorándome de ti una y otra vez, como si cada amanecer fuera el primero.
+</p>
+
+<p>
+Y eso es exactamente lo que haces conmigo.
+</p>
+
+<p>
+Cada día encuentro una razón nueva para amarte.
+</p>
+
+<p>
+Una nueva razón para sentirme orgulloso de la mujer maravillosa que eres.
+</p>
+
+<p>
+Eres hermosa.
+</p>
+
+<p>
+Pero no solamente por tu sonrisa.
+</p>
+
+<p>
+Eres hermosa por la ternura con la que miras.
+</p>
+
+<p>
+Por la bondad que llevas dentro.
+</p>
+
+<p>
+Por la fuerza que tienes incluso cuando nadie la ve.
+</p>
+
+<p>
+Por la forma en que haces que mi corazón encuentre paz con solo pensar en ti.
+</p>
+
+<p>
+Si esta noche pudieras escuchar cada latido de mi pecho, descubrirías que todos pronuncian tu nombre.
+</p>
+
+<p>
+Uno por uno.
+</p>
+
+<p>
+Sin detenerse.
+</p>
+
+<p>
+Como una promesa que jamás dejará de cumplirse.
+</p>
+
+<p>
+Y aunque hoy la distancia me robe tus abrazos...
+</p>
+
+<p>
+Aunque esta noche tenga que conformarme con imaginar tus besos...
+</p>
+
+<p>
+Aunque mi corazón sienta un vacío enorme por no tenerte aquí...
+</p>
+
+<p>
+Quiero que nunca dudes de algo.
+</p>
+
+<p>
+<strong>Ni un solo kilómetro podrá hacer que deje de amarte.</strong>
+</p>
+
+<p>
+<strong>Ni un solo día conseguirá borrar todo lo que siento por ti.</strong>
+</p>
+
+<p>
+Porque mi amor por ti no depende de la cercanía.
+</p>
+
+<p>
+Depende del alma.
+</p>
+
+<p>
+Y mi alma hace mucho tiempo decidió quedarse contigo para siempre.
+</p>
+
+<p>
+Así que esta noche dormiré abrazando la esperanza.
+</p>
+
+<p>
+Pensando en el momento en que vuelva a verte.
+</p>
+
+<p>
+En el instante en que nuestras manos vuelvan a encontrarse.
+</p>
+
+<p>
+En el segundo exacto en que vuelva a perderme en tus ojos.
+</p>
+
+<p>
+Y especialmente...
+</p>
+
+<p>
+<strong>En ese beso.</strong>
+</p>
+
+<p>
+Ese beso que llevo tantos días soñando.
+</p>
+
+<p>
+Ese beso que seguramente hará que toda esta espera haya valido la pena.
+</p>
+
+<p>
+Hasta entonces seguiré cuidando este amor con todo lo que soy.
+</p>
+
+<p>
+Seguiré contando los días.
+</p>
+
+<p>
+Seguiré soñando contigo.
+</p>
+
+<p>
+Seguiré enamorándome de ti incluso desde la distancia.
+</p>
+
+<p>
+Porque no existe un solo lugar en este universo donde mi corazón quiera vivir que no sea a tu lado.
+</p>
+
+<p>
+Te extraño muchísimo, mi princesa hermosa.
+</p>
+
+<p>
+Y si esta noche se me hace difícil soportar la distancia, es porque mi corazón nunca dejó de buscar tus labios.
+</p>
+
+<p>
+Te amo con toda mi alma.
+</p>
+
+<p>
+Con todo mi corazón.
+</p>
+
+<p>
+Con toda mi vida.
+</p>
+
+<p>
+Y con todos los besos que aún guardo para ti, esperando el día en que por fin pueda entregártelos uno por uno, como la prueba más sincera de que mi amor por ti no deja de crecer jamás.
+</p>
+
+<p>
+Buenas noches, mi amor.
+</p>
+
+<p>
+Que los sueños te abracen por mí mientras llega el momento en que sea yo quien pueda hacerlo de verdad.
+</p>
+
+<div class="divider" style="margin-top:70px;margin-bottom:35px;">
+    <span></span>
+    <i>❤</i>
+    <span></span>
+</div>
+
+<div class="signature">
+    Con todo mi amor,<br>
+    <strong>Tu niño que siempre te elegirá. ❤️</strong>
+</div>
+
+</div>
+</div>
+
 </body>
 </html>
- 
